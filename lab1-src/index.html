@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+crossorigin="anonymous">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<title>lab1</title>
+</head>
+<body>
+<div class="container">
+    <div id="first" class="stripe center">
+        <h2>
+            Welcome to <br>
+            Mr. Cho's World<br>
+        </h2> 
+        <button class="btn-own" onclick="toggleFunction()">Click Me</button>
+    </div>
+        
+        
+        <div id="myDIV">
+            <div id="second" class="stripe">
+                <img class="rounded mx-auto d-block" src="./asset/profile2.png" alt="image">
+                <div class="media">
+                    <div class="media-body">
+                        <h5 class="mt-0">Who Am I ?</h5>
+                        <p>
+                            Name: Younghyun cho<br> From: South Korea<br> Education: Purdue University - B.S in Computer Science<br>
+                        </p>
+                    </div>
+                </div>
+                <div class="summary">
+                    <h5>Summary of My Experience</h5>
+                    <table class="table table-sm">
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Language</td>
+                                <td>HTML, CSS, JavaScript, C, C++, Java, Swift</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Classes</td>
+                                <td>CS180, CS182, CS240, CS250, CS251, CS252, CS307, CS390</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>Preference</td>
+                                <td>Web Front-End<br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">4</th>
+                                <td>Project</td>
+                                <td>CS307(Dorm Community Hub)<br>
+                                    <a href="https://univport.com">Univport.com (Local Online Community)</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="external">
+                    <h5>External Link</h5>
+                    <a href="https://www.linkedin.com/in/younghyuncho/" class="fa fa-linkedin" target="_blank"></a>
+                    <a href="https://github.com/PurdueCho" class="fa fa-github" target="_blank"></a>
+                </div>
+        </div>
+
+        <!-- toggle script -->
+        <script>
+        function toggleFunction() {
+                var x = document.getElementById("myDIV");
+                if (x.style.display === "block") {
+                    x.style.display = "none";
+                } else {
+                    x.style.display = "block";
+                }
+            }
+        </script>
+    </div>
+</div>
+
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+crossorigin="anonymous"></script>
+</body>
+</html>
