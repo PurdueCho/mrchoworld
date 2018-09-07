@@ -2,6 +2,7 @@
     padding: none;
 }
 
+
 .btn-own {
     background-color: rgb(247,202,201);
     border: none;
@@ -96,5 +97,10 @@
 
 .fa-github {
     background: black;
+    color: white;
+}
+
+.fa-file {
+    background-color: #007bb5;
     color: white;
 }
