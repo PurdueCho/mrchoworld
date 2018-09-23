@@ -78,29 +78,17 @@
     padding: 25px;
 }
 
-.fa {
-    padding: 20px;
+.link_icon {
+    padding: 10px;
     font-size: 30px;
-    width: 50px;
     text-align: center;
-    text-decoration: none;
-    margin: 5px 2px;
+    color: aliceblue;
 }
-.fa:hover {
+.link_icon:hover {
     opacity: 0.7;
 }
 
-.fa-linkedin {
-    background: #007bb5;
-    color: white;
+.resource {
+padding: 25px;
 }
 
-.fa-github {
-    background: black;
-    color: white;
-}
-
-.fa-file {
-    background-color: #007bb5;
-    color: white;
-}
