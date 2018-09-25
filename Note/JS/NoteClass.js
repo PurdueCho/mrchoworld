@@ -1,23 +1,27 @@
 let list = document.getElementById('noteList');
 let i;
-let noteArray = [];
+let noteList = [];
+let response = [];
 
 class Note {
     constructor(name, description) {
         this.name = name;
         this.description = description;
     }
-    get_name () {
+
+    get_name() {
         return this.name;
     }
-    get_description () {
+
+    get_description() {
         return this.description;
     }
 }
 
+
 class NoteComponent {
-    constructor () {}
-    
+    constructor() {}
+
     addNote(name, description) {
         if (name === "" || description === "") {
             alert("I want to 'write' someting!");
@@ -26,6 +30,9 @@ class NoteComponent {
 
         //console.log(name);
         //console.log(description);
+
+        // append to noteList
+        noteList.push(new Note(name, description));
 
         // DOM to <li> - p - p - </li>
         let newList = document.createElement("LI");
@@ -50,9 +57,7 @@ class NoteComponent {
         // append to list
         list.appendChild(newList);
 
-        //
-        noteArray.push(new Note(name,description));
-        //console.log(noteArray);
+        //console.log(noteList);
 
         // empty
         document.getElementById('noteTitle').value = '';
@@ -60,8 +65,6 @@ class NoteComponent {
     }
 
     viewNote(el) {
-        let ul, li, title, description;
-
         // get index of the notes
         i = 0;
         while (el.previousElementSibling) {
@@ -69,15 +72,9 @@ class NoteComponent {
             i++;
         }
 
-        // get elements from clicked list
-        ul = document.getElementById("noteList");
-        li = ul.getElementsByTagName('li');
-        title = li[i].getElementsByClassName('notes_Title')[0];
-        description = li[i].getElementsByClassName('notes_Description')[0];
-
         // display to Notes side
-        document.getElementById('noteTitle').value = title.textContent;
-        document.getElementById('noteDescription').value = description.textContent;
+        document.getElementById('noteTitle').value = noteList[i].get_name();
+        document.getElementById('noteDescription').value = noteList[i].get_description();
 
         // show btn
         document.getElementById('editBtn').style.display = "inline";
@@ -85,12 +82,12 @@ class NoteComponent {
     }
 
     editNote() {
-        let ul, li, title, description;
+        let name, description, ul, li;
         // get edited title and description
-        title = document.getElementById('noteTitle').value;
+        name = document.getElementById('noteTitle').value;
         description = document.getElementById('noteDescription').value;
 
-        if (title === "" || description === "") {
+        if (name === "" || description === "") {
             alert("I want to 'write' someting!");
             return;
         }
@@ -98,8 +95,11 @@ class NoteComponent {
         // get elements from clicked list
         ul = document.getElementById("noteList");
         li = ul.getElementsByTagName('li');
-        li[i].getElementsByClassName('notes_Title')[0].textContent = title;
+        li[i].getElementsByClassName('notes_Title')[0].textContent = name;
         li[i].getElementsByClassName('notes_Description')[0].textContent = description;
+
+        noteList[i].name = name;
+        noteList[i].description = description;
 
         // empty
         document.getElementById('noteTitle').value = '';
@@ -119,8 +119,8 @@ class NoteComponent {
         // Remove
         ul.removeChild(li[i]);
 
-        // Remove from array
-        noteArray.splice(i,1);
+        // remove from array
+        noteList.splice(i, 1);
 
         // empty
         document.getElementById('noteTitle').value = '';
@@ -150,21 +150,36 @@ class NoteComponent {
         }
     }
 
+    // take a noteList and query, and returns a list of filtered by the same title and query parameter
+    filterList(noteList, query) {
+        response=[];
+        let filter, name;
+        filter = query.toUpperCase();
+
+        for (i = 0; i < noteList.length; i++) {
+            name = noteList[i].get_name();
+            if ( name.toUpperCase().indexOf(filter) > -1 ) {
+                response.push(new Note(noteList[i].get_name(), noteList[i].get_description()));
+            }
+        }
+        return response;
+    }
+
 }
 let note = new NoteComponent();
 
-function addNote () {
+function addNote() {
     // get notes elements
     let name = document.getElementById('noteTitle').value;
     let description = document.getElementById('noteDescription').value;
-    note.addNote(name,description);
+    note.addNote(name, description);
 }
 
-function viewNote (el) {
+function viewNote(el) {
     note.viewNote(el);
 }
 
-function editNote () {
+function editNote() {
     note.editNote();
 }
 
@@ -175,3 +190,4 @@ function removeNote() {
 function search() {
     note.search();
 }
+

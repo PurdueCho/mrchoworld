@@ -1,7 +1,7 @@
 // get notes List
 let list = document.getElementById('noteList');
 
-function newNote() {
+function addNote() {
     // get title and description
     let title = document.getElementById('noteTitle').value;
     let description = document.getElementById('noteDescription').value;
